@@ -4,36 +4,9 @@ require 'open-uri'
 
 PAGE_URL = "https://coinmarketcap.com/all/views/all/"
 
-page = Nokogiri::HTML(open(PAGE_URL))   
-#page.xpath("//td[@class='cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__price']/a").each do |price|
-   #puts price.content
-#end
-
-#page.xpath("//td[@class='cmc-table__cell cmc-table__cell--sortable cmc-table__cell--right cmc-table__cell--sort-by__price']/a").each do |price|
-   #puts price.content
-#end
-
-#page.xpath("//td[@class='cmc-table__cell cmc-table__cell--sortable cmc-table__cell--left cmc-table__cell--sort-by__symbol']").each do |symbol|
-  #puts symbol.content
-#end
-
-
-
-#doc.xpath(“//td[@class=‘cmc-table__cell cmc-table__cell--sortable cmc-table__cell--left cmc-table__cell--sort-by__symbol’]//div”).each do |symbol|
-
-#puts page.class   # => Nokogiri::HTML::Documentx
-
-
 def get_townhall_email(townhall_url)
   page = Nokogiri::HTML(open(townhall_url))   
-  #page.xpath("//td[@class='txt-primary tr-last']").each do |mail|
-    #puts mail.content
-  #end
-  #[contains(@href, "mailto")]'
-  #puts page.xpath("//tr[contains(@tr, 'mail')]")
-  #puts page.xpath("//tr[@class='txt-primary tr-last']")
   return page.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]").text
-  #puts page
 end
 
 
