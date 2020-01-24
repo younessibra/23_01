@@ -2,8 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-PAGE_URL = "https://coinmarketcap.com/all/views/all/"
-
 def get_townhall_email(townhall_url)
   page = Nokogiri::HTML(open(townhall_url))   
   return page.xpath("/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]").text
