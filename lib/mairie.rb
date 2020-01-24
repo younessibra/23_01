@@ -27,13 +27,13 @@ def get_cities
   return cities
 end
 
-emails = []
-urls = get_townhall_urls
-urls.each do |url|
-  emails << get_townhall_email(url)
+def get_all_emails
+  emails = []
+  urls = get_townhall_urls
+  urls.each do |url|
+    emails << get_townhall_email(url)
+  end
+  return emails
 end
 
-cities = get_cities
-
-hashed = Hash[cities.zip emails]
-puts hashed
+puts hashed = Hash[get_cities.zip get_all_emails]
